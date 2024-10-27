@@ -1,0 +1,323 @@
+serg@serg-1011PX:~/my_project$ sudo sat > pets.txt
+[sudo] пароль для serg:
+sudo: sat: команда не найдена
+serg@serg-1011PX:~/my_project$ sudo cat > pets.txt
+dogs
+are cats
+hamsters
+serg@serg-1011PX:~/my_project$ sudo cat > pack_animals.txt
+horses
+camels
+donkeys
+
+serg@serg-1011PX:~/my_project$ cat pets
+cat: pets: Нет такого файла или каталога
+serg@serg-1011PX:~/my_project$ cat pets.txt
+dogs
+are cats
+hamsters
+serg@serg-1011PX:~/my_project$ cat pack_animals.txt
+horses
+camels
+donkeys
+
+serg@serg-1011PX:~/my_project$
+serg@serg-1011PX:~/my_project$ pwd
+/home/serg/my_project
+serg@serg-1011PX:~/my_project$ ll
+итого 48
+drwxrwxr-x  4 serg serg 4096 окт 27 17:33 ./
+drwxr-xr-x 22 serg serg 4096 окт 27 18:09 ../
+-rw-rw-r--  1 serg serg  341 окт 18 22:02 docker-compose.dev1.yml
+-rw-rw-r--  1 serg serg  343 окт 18 21:35 docker-compose.dev.yml
+-rw-rw-r--  1 serg serg  631 окт 18 22:00 docker-compose.lab1.yml
+-rw-rw-r--  1 serg serg  631 окт 18 21:48 docker-compose.lab.yml
+-rw-rw-r--  1 serg serg  615 окт 18 21:46 docker-compose.prod.yml
+-rw-rw-r--  1 serg serg  332 окт 18 22:23 docker-compose.yml
+drwxrwxr-x  4 serg serg 4096 окт 27 16:52 Final_work_developers/
+drwxrwxr-x  2 serg serg 4096 окт 27 17:43 fin_work/
+-rw-rw-r--  1 serg serg   23 окт 27 18:14 pack_animals.txt
+-rw-rw-r--  1 serg serg   23 окт 27 18:13 pets.txt
+serg@serg-1011PX:~/my_project$
+serg@serg-1011PX:~/my_project$ sudo cat pack_animals.txt pets.txt > human_friends.txt
+serg@serg-1011PX:~/my_project$ ll
+итого 52
+drwxrwxr-x  4 serg serg 4096 окт 27 18:20 ./
+drwxr-xr-x 22 serg serg 4096 окт 27 18:09 ../
+-rw-rw-r--  1 serg serg  341 окт 18 22:02 docker-compose.dev1.yml
+-rw-rw-r--  1 serg serg  343 окт 18 21:35 docker-compose.dev.yml
+-rw-rw-r--  1 serg serg  631 окт 18 22:00 docker-compose.lab1.yml
+-rw-rw-r--  1 serg serg  631 окт 18 21:48 docker-compose.lab.yml
+-rw-rw-r--  1 serg serg  615 окт 18 21:46 docker-compose.prod.yml
+-rw-rw-r--  1 serg serg  332 окт 18 22:23 docker-compose.yml
+drwxrwxr-x  4 serg serg 4096 окт 27 16:52 Final_work_developers/
+drwxrwxr-x  2 serg serg 4096 окт 27 17:43 fin_work/
+-rw-rw-r--  1 serg serg   46 окт 27 18:20 human_friends.txt
+-rw-rw-r--  1 serg serg   23 окт 27 18:14 pack_animals.txt
+-rw-rw-r--  1 serg serg   23 окт 27 18:13 pets.txt
+serg@serg-1011PX:~/my_project$
+serg@serg-1011PX:~/my_project$ cat human_friends.txt
+horses
+camels
+donkeys
+
+dogs
+are cats
+hamsters
+serg@serg-1011PX:~/my_project$
+serg@serg-1011PX:~/my_project$ mkdir fin_work
+serg@serg-1011PX:~/my_project$ ll
+итого 52
+drwxrwxr-x  4 serg serg 4096 окт 27 18:22 ./
+drwxr-xr-x 22 serg serg 4096 окт 27 18:09 ../
+-rw-rw-r--  1 serg serg  341 окт 18 22:02 docker-compose.dev1.yml
+-rw-rw-r--  1 serg serg  343 окт 18 21:35 docker-compose.dev.yml
+-rw-rw-r--  1 serg serg  631 окт 18 22:00 docker-compose.lab1.yml
+-rw-rw-r--  1 serg serg  631 окт 18 21:48 docker-compose.lab.yml
+-rw-rw-r--  1 serg serg  615 окт 18 21:46 docker-compose.prod.yml
+-rw-rw-r--  1 serg serg  332 окт 18 22:23 docker-compose.yml
+drwxrwxr-x  4 serg serg 4096 окт 27 16:52 Final_work_developers/
+drwxrwxr-x  2 serg serg 4096 окт 27 18:22 fin_work/
+-rw-rw-r--  1 serg serg   46 окт 27 18:20 human_friends.txt
+-rw-rw-r--  1 serg serg   23 окт 27 18:14 pack_animals.txt
+-rw-rw-r--  1 serg serg   23 окт 27 18:13 pets.txt
+serg@serg-1011PX:~/my_project$
+serg@serg-1011PX:~/my_project$ mv /home/serg/my_project/human_friends.txt /home/serg/my_project/fin_work/human_friends.txt
+serg@serg-1011PX:~/my_project$ ll
+итого 48
+drwxrwxr-x  4 serg serg 4096 окт 27 18:23 ./
+drwxr-xr-x 22 serg serg 4096 окт 27 18:09 ../
+-rw-rw-r--  1 serg serg  341 окт 18 22:02 docker-compose.dev1.yml
+-rw-rw-r--  1 serg serg  343 окт 18 21:35 docker-compose.dev.yml
+-rw-rw-r--  1 serg serg  631 окт 18 22:00 docker-compose.lab1.yml
+-rw-rw-r--  1 serg serg  631 окт 18 21:48 docker-compose.lab.yml
+-rw-rw-r--  1 serg serg  615 окт 18 21:46 docker-compose.prod.yml
+-rw-rw-r--  1 serg serg  332 окт 18 22:23 docker-compose.yml
+drwxrwxr-x  4 serg serg 4096 окт 27 16:52 Final_work_developers/
+drwxrwxr-x  2 serg serg 4096 окт 27 18:23 fin_work/
+-rw-rw-r--  1 serg serg   23 окт 27 18:14 pack_animals.txt
+-rw-rw-r--  1 serg serg   23 окт 27 18:13 pets.txt
+serg@serg-1011PX:~/my_project$ cd fin_work/
+serg@serg-1011PX:~/my_project/fin_work$ ll
+итого 12
+drwxrwxr-x 2 serg serg 4096 окт 27 18:23 ./
+drwxrwxr-x 4 serg serg 4096 окт 27 18:23 ../
+-rw-rw-r-- 1 serg serg   46 окт 27 18:20 human_friends.txt
+serg@serg-1011PX:~/my_project/fin_work$
+
+
+serg@serg-1011PX:~/my_project/fin_work$ wget https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb
+--2024-10-27 18:25:44--  https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb
+Распознаётся dev.mysql.com (dev.mysql.com)… 184.51.234.232, 2001:2030:21:19e::2e31, 2001:2030:21:1a9::2e31
+Подключение к dev.mysql.com (dev.mysql.com)|184.51.234.232|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 302 Moved Temporarily
+Адрес: https://repo.mysql.com//mysql-apt-config_0.8.22-1_all.deb [переход]
+--2024-10-27 18:25:45--  https://repo.mysql.com//mysql-apt-config_0.8.22-1_all.deb
+Распознаётся repo.mysql.com (repo.mysql.com)… 2.19.153.220, 2a02:26f0:9500:10b6::1d68, 2a02:26f0:9500:10a6::1d68
+Подключение к repo.mysql.com (repo.mysql.com)|2.19.153.220|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 18012 (18K) [application/x-debian-package]
+Сохранение в: «mysql-apt-config_0.8.22-1_all.deb»
+
+mysql-apt-config_0.8.22-1_all.deb                100%[=========================================================================================================>]  17,59K  --.-KB/s    за 0,004s
+
+2024-10-27 18:25:46 (4,52 MB/s) - «mysql-apt-config_0.8.22-1_all.deb» сохранён [18012/18012]
+
+serg@serg-1011PX:~/my_project/fin_work$
+serg@serg-1011PX:~/my_project/fin_work$ sudo dpkg -i mysql-apt-config_0.8.22-1_all.deb
+dpkg: предупреждение: снижение версии mysql-apt-config с 0.8.23-1 до 0.8.22-1
+(Чтение базы данных … на данный момент установлено 174610 файлов и каталогов.)
+Подготовка к распаковке mysql-apt-config_0.8.22-1_all.deb …
+Распаковывается mysql-apt-config (0.8.22-1) на замену (0.8.23-1) …
+Настраивается пакет mysql-apt-config (0.8.22-1) …
+Warning: apt-key should not be used in scripts (called from postinst maintainerscript of the package mysql-apt-config)
+OK
+serg@serg-1011PX:~/my_project/fin_work$
+serg@serg-1011PX:~/my_project/fin_work$ sudo apt update
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu focal InRelease
+Пол:2 http://ru.archive.ubuntu.com/ubuntu focal-updates InRelease [128 kB]
+Пол:3 http://security.ubuntu.com/ubuntu focal-security InRelease [128 kB]
+Пол:4 http://ru.archive.ubuntu.com/ubuntu focal-backports InRelease [128 kB]
+Сущ:5 http://ppa.launchpad.net/nginx/stable/ubuntu focal InRelease
+Пол:6 http://repo.mysql.com/apt/ubuntu focal InRelease [12,8 kB]
+Пол:7 https://download.docker.com/linux/ubuntu focal InRelease [57,7 kB]
+Пол:8 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 DEP-11 Metadata [276 kB]
+Пол:9 http://ru.archive.ubuntu.com/ubuntu focal-updates/restricted amd64 DEP-11 Metadata [212 B]
+Пол:10 http://ru.archive.ubuntu.com/ubuntu focal-updates/universe amd64 DEP-11 Metadata [445 kB]
+Пол:11 http://ru.archive.ubuntu.com/ubuntu focal-updates/multiverse amd64 DEP-11 Metadata [940 B]
+Пол:12 http://ru.archive.ubuntu.com/ubuntu focal-backports/main amd64 DEP-11 Metadata [7 956 B]
+Пол:13 http://ru.archive.ubuntu.com/ubuntu focal-backports/restricted amd64 DEP-11 Metadata [212 B]
+Пол:14 http://ru.archive.ubuntu.com/ubuntu focal-backports/universe amd64 DEP-11 Metadata [30,5 kB]
+Пол:15 http://ru.archive.ubuntu.com/ubuntu focal-backports/multiverse amd64 DEP-11 Metadata [212 B]
+Пол:16 http://security.ubuntu.com/ubuntu focal-security/main amd64 DEP-11 Metadata [65,3 kB]
+Пол:17 http://security.ubuntu.com/ubuntu focal-security/restricted amd64 DEP-11 Metadata [212 B]
+Пол:18 http://security.ubuntu.com/ubuntu focal-security/universe amd64 DEP-11 Metadata [160 kB]
+Пол:19 http://security.ubuntu.com/ubuntu focal-security/multiverse amd64 DEP-11 Metadata [940 B]
+Ошб:6 http://repo.mysql.com/apt/ubuntu focal InRelease
+  Следующие подписи не могут быть проверены, так как недоступен открытый ключ: NO_PUBKEY B7B3B788A8D3785C
+
+^C
+serg@serg-1011PX:~/my_project/fin_work$
+serg@serg-1011PX:~/my_project/fin_work$ sudo apt install mysql-client
+Чтение списков пакетов… Готово
+Построение дерева зависимостей
+Чтение информации о состоянии… Готово
+Следующие НОВЫЕ пакеты будут установлены:
+  mysql-client
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+Необходимо скачать 9 364 B архивов.
+После данной операции объём занятого дискового пространства возрастёт на 35,8 kB.
+Пол:1 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 mysql-client all 8.0.39-0ubuntu0.20.04.1 [9 364 B]
+Получено 9 364 B за 0с (19,1 kB/s)
+Выбор ранее не выбранного пакета mysql-client.
+(Чтение базы данных … на данный момент установлено 174610 файлов и каталогов.)
+Подготовка к распаковке …/mysql-client_8.0.39-0ubuntu0.20.04.1_all.deb …
+Распаковывается mysql-client (8.0.39-0ubuntu0.20.04.1) …
+Настраивается пакет mysql-client (8.0.39-0ubuntu0.20.04.1) …
+serg@serg-1011PX:~/my_project/fin_work$
+serg@serg-1011PX:~/my_project/fin_work$ sudo apt upgrade
+Чтение списков пакетов… Готово
+Построение дерева зависимостей
+Чтение информации о состоянии… Готово
+Расчёт обновлений… Готово
+Get more security updates through Ubuntu Pro with 'esm-apps' enabled:
+  mc mc-data inetutils-traceroute
+Learn more about Ubuntu Pro at https://ubuntu.com/pro
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+serg@serg-1011PX:~/my_project/fin_work$ dpkg -l
+virtualbox-7.1_7.1.4-165100~Ubuntu~jammy_amd64.d 100%[=========================================================================================================>]  99,31M  10,2MB/s    за 10s
+
+2024-10-27 18:53:12 (9,89 MB/s) - «virtualbox-7.1_7.1.4-165100~Ubuntu~jammy_amd64.deb» сохранён [104137212/104137212]
+
+serg@serg-1011PX:~$ ll
+итого 101928
+drwxr-xr-x 22 serg serg      4096 окт 27 18:53  ./
+drwxr-xr-x  4 root root      4096 окт  6 21:35  ../
+-rw-------  1 serg serg     27976 окт 27 17:50  .bash_history
+-rw-r--r--  1 serg serg       220 окт  6 20:41  .bash_logout
+-rw-r--r--  1 serg serg      3771 окт  6 20:41  .bashrc
+drwx------ 13 serg serg      4096 окт 17 17:41  .cache/
+drwx------ 13 serg serg      4096 окт  8 19:07  .config/
+drwx------  3 serg serg      4096 окт 14 17:40  .docker/
+-rw-rw-r--  1 serg serg       126 окт 15 19:53  Dockerfile
+-rw-rw-r--  1 serg serg       489 окт  9 20:19  example1.c
+-rwxrwxr-x  1 serg serg     16904 окт  9 20:20  example1.sh*
+-rw-rw-r--  1 serg serg       803 окт  9 20:40  example2.c
+-rwxrwxr-x  1 serg serg     17128 окт  9 20:41  example2.sh*
+-rw-rw-r--  1 serg serg       405 окт  9 20:10  example.c
+-rwxrwxr-x  1 serg serg     16904 окт  9 20:10  example.sh*
+drwxrwxr-x  5 serg serg      4096 окт  9 17:44  gb/
+drwx------  3 serg serg      4096 окт  6 21:20  .gnupg/
+-rw-r--r--  1 root root         0 окт 11 21:24  ip.rules
+drwxr-xr-x  3 serg serg      4096 окт  6 21:18  .local/
+-rw-rw-r--  1 serg serg       162 окт 10 21:43  Main.java
+drwxr-xr-x  2 root root      4096 окт 10 21:42  META-INF/
+drwxrwxr-x  4 serg serg      4096 окт 27 18:23  my_project/
+-rw-r--r--  1 serg serg       807 окт  6 20:41  .profile
+-rw-rw-r--  1 serg serg         0 окт 22 15:47  screen.log
+-rw-rw-r--  1 serg serg        66 окт  8 04:15  .selected_editor
+drwxrwxrwx  3 serg serg      4096 окт 17 18:00  shared/
+drwx------  3 serg serg      4096 окт  7 18:13  snap/
+drwx------  2 serg serg      4096 окт  6 21:20  .ssh/
+-rw-r--r--  1 serg serg         0 окт  6 21:22  .sudo_as_admin_successful
+drwxrwxr-x  2 serg serg      4096 окт 16 21:10  test_dir/
+-rw-rw-r--  1 serg serg       119 окт 17 19:52  testyaml.yaml
+-rw-------  1 serg serg      1618 окт  9 18:46  .viminfo
+-rw-r--r--  1 root root 104137212 окт 10 22:07  virtualbox-7.1_7.1.4-165100~Ubuntu~jammy_amd64.deb
+-rw-rw-r--  1 serg serg       168 окт 27 18:25  .wget-hsts
+drwxr-xr-x  2 serg serg      4096 окт  6 21:18  Видео/
+drwxr-xr-x  2 serg serg      4096 окт  6 21:18  Документы/
+drwxr-xr-x  2 serg serg      4096 окт  6 21:18  Загрузки/
+drwxr-xr-x  2 serg serg      4096 окт  6 21:18  Изображения/
+drwxr-xr-x  2 serg serg      4096 окт  6 21:18  Музыка/
+drwxr-xr-x  2 serg serg      4096 окт  6 21:18  Общедоступные/
+drwxr-xr-x  2 serg serg      4096 окт  6 21:18 'Рабочий стол'/
+drwxr-xr-x  2 serg serg      4096 окт  6 21:18  Шаблоны/
+serg@serg-1011PX:~$ sudo dpkg -i virtualbox-7.1_7.1.4-165100~Ubuntu~jammy_amd64.deb
+Выбор ранее не выбранного пакета virtualbox-7.1.
+(Чтение базы данных … на данный момент установлено 174612 файлов и каталогов.)
+Подготовка к распаковке virtualbox-7.1_7.1.4-165100~Ubuntu~jammy_amd64.deb …
+Распаковывается virtualbox-7.1 (7.1.4-165100~Ubuntu~jammy) …
+dpkg: зависимости пакетов не позволяют настроить пакет virtualbox-7.1:
+ virtualbox-7.1 зависит от libc6 (>= 2.34), однако:
+  Версия libc6:amd64 в системе — 2.31-0ubuntu9.16.
+ virtualbox-7.1 зависит от libgdk-pixbuf-2.0-0 (>= 2.31.1), однако:
+  Пакет libgdk-pixbuf-2.0-0 не установлен.
+ virtualbox-7.1 зависит от libssl3 (>= 3.0.0~~alpha1), однако:
+  Пакет libssl3 не установлен.
+ virtualbox-7.1 зависит от libstdc++6 (>= 12), однако:
+  Версия libstdc++6:amd64 в системе — 10.5.0-1ubuntu1~20.04.
+ virtualbox-7.1 зависит от libvpx7 (>= 1.10.0), однако:
+  Пакет libvpx7 не установлен.
+ virtualbox-7.1 зависит от libx11-xcb1 (>= 2:1.7.5), однако:
+  Версия libx11-xcb1:amd64 в системе — 2:1.6.9-2ubuntu1.6.
+ virtualbox-7.1 зависит от libxcb-cursor0 (>= 0.0.99), однако:
+  Пакет libxcb-cursor0 не установлен.
+
+dpkg: ошибка при обработке пакета virtualbox-7.1 (--install):
+ проблемы зависимостей — оставляем не настроенным
+Обрабатываются триггеры для libc-bin (2.31-0ubuntu9.16) …
+Обрабатываются триггеры для systemd (245.4-4ubuntu3.24) …
+Обрабатываются триггеры для gnome-menus (3.36.0-1ubuntu1) …
+Обрабатываются триггеры для desktop-file-utils (0.24-1ubuntu3) …
+Обрабатываются триггеры для mime-support (3.64ubuntu1) …
+Обрабатываются триггеры для hicolor-icon-theme (0.17-2) …
+Обрабатываются триггеры для shared-mime-info (1.15-1) …
+При обработке следующих пакетов произошли ошибки:
+ virtualbox-7.1
+serg@serg-1011PX:~$
+serg@serg-1011PX:~$ sudo apt -f install
+Чтение списков пакетов… Готово
+Построение дерева зависимостей
+Чтение информации о состоянии… Готово
+Исправление зависимостей… Готово
+Следующие пакеты будут УДАЛЕНЫ:
+  virtualbox-7.1
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 1 пакетов, и 0 пакетов не обновлено.
+Установлено или удалено не до конца 1 пакетов.
+После данной операции объём занятого дискового пространства уменьшится на 258 MB.
+Хотите продолжить? [Д/н] y
+(Чтение базы данных … на данный момент установлено 175377 файлов и каталогов.)
+Удаляется virtualbox-7.1 (7.1.4-165100~Ubuntu~jammy) …
+Обрабатываются триггеры для mime-support (3.64ubuntu1) …
+Обрабатываются триггеры для hicolor-icon-theme (0.17-2) …
+Обрабатываются триггеры для gnome-menus (3.36.0-1ubuntu1) …
+Обрабатываются триггеры для libc-bin (2.31-0ubuntu9.16) …
+Обрабатываются триггеры для shared-mime-info (1.15-1) …
+Обрабатываются триггеры для desktop-file-utils (0.24-1ubuntu3) …
+root@serg-1011PX:/etc/apt/sources.list.d# sudo gpg --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg --dearmor oracle_vbox_2016.asc
+gpg: не могу открыть 'oracle_vbox_2016.asc': Нет такого файла или каталога
+gpg: ошибка преобразования из текстового формата: Нет такого файла или каталога
+root@serg-1011PX:/etc/apt/sources.list.d# wget -O- https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg --dearmor
+--2024-10-27 19:16:51--  https://www.virtualbox.org/download/oracle_vbox_2016.asc
+Распознаётся www.virtualbox.org (www.virtualbox.org)… 184.85.146.196, 2001:2030:21:184::37b7, 2001:2030:21:183::37b7
+Подключение к www.virtualbox.org (www.virtualbox.org)|184.85.146.196|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 3157 (3,1K) [application/pgp-signature]
+Сохранение в: «STDOUT»
+
+-                                                100%[=========================================================================================================>]   3,08K  --.-KB/s    за 0,001s
+
+/2024-10-27 19:16:52 (3,21 MB/s) - записан в stdout [3157/3157]
+
+root@serg-1011PX:/etc/apt/sources.list.d# apt update
+Сущ:1 http://security.ubuntu.com/ubuntu focal-security InRelease
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu focal InRelease
+Сущ:3 http://ru.archive.ubuntu.com/ubuntu focal-updates InRelease
+Сущ:4 http://ru.archive.ubuntu.com/ubuntu focal-backports InRelease
+Сущ:5 http://ppa.launchpad.net/nginx/stable/ubuntu focal InRelease
+Сущ:6 https://download.virtualbox.org/virtualbox/debian jammy InRelease
+Пол:7 https://download.docker.com/linux/ubuntu focal InRelease [57,7 kB]
+Пол:8 http://repo.mysql.com/apt/ubuntu focal InRelease [12,8 kB]
+Пол:8 http://repo.mysql.com/apt/ubuntu focal InRelease
+Чтение списков пакетов… Готово
+root@serg-1011PX:/etc/apt/sources.list.d#
+root@serg-1011PX:/home/serg# sudo dpkg -r virtualbox-7.1
+dpkg: предупреждение: игнорируется запрос на удаление пакета virtualbox-7.1, от которого
+ сохранились только файлы настройки; чтобы удалить и файлы
+ настройки, используйте --purge
+root@serg-1011PX:/home/serg# sudo dpkg --purge virtualbox-7.1
+(Чтение базы данных … на данный момент установлено 174614 файлов и каталогов.)
+Вычищаются файлы настройки пакета virtualbox-7.1 (7.1.4-165100~Ubuntu~jammy) …
+dpkg: предупреждение: при удалении virtualbox-7.1 каталог «/usr/local/lib» не пуст, поэтому не удалён
+root@serg-1011PX:/home/serg#
