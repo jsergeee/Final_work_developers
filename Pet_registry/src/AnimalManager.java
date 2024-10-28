@@ -23,6 +23,12 @@ public class AnimalManager {
                         System.out.println("Введите тип животного (Dog/Cat):");
                         String type = scanner.nextLine();
 
+                        // Проверяем, заполнены ли все поля
+                        if (name.isEmpty() || type.isEmpty()) {
+                            System.out.println("Ошибка: все поля должны быть заполнены.");
+                            break; // Прерываем выполнение, если поля не заполнены
+                        }
+
                         Animal animal;
                         if (type.equalsIgnoreCase("Dog")) {
                             animal = new Dog(name);
@@ -30,11 +36,11 @@ public class AnimalManager {
                             animal = new Cat(name);
                         } else {
                             System.out.println("Неверный тип животного.");
-                            continue;
+                            break;
                         }
 
                         animals.add(animal);
-                        counter.add();
+                        counter.add(); // Увеличиваем счетчик только если животное успешно создано
                         System.out.println("Животное заведено.");
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
