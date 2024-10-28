@@ -1,12 +1,15 @@
 class Counter implements AutoCloseable {
     private int count;
+    private boolean isUsed;
 
     public Counter() {
         this.count = 0;
+        this.isUsed = false;
     }
 
     public void add() {
         count++;
+        isUsed = true; // Отмечаем, что объект использован
     }
 
     public int getCount() {
@@ -15,7 +18,7 @@ class Counter implements AutoCloseable {
 
     @Override
     public void close() throws Exception {
-        if (count == 0) {
+        if (!isUsed) {
             throw new Exception("Counter was not used properly.");
         }
     }
