@@ -321,3 +321,322 @@ root@serg-1011PX:/home/serg# sudo dpkg --purge virtualbox-7.1
 Вычищаются файлы настройки пакета virtualbox-7.1 (7.1.4-165100~Ubuntu~jammy) …
 dpkg: предупреждение: при удалении virtualbox-7.1 каталог «/usr/local/lib» не пуст, поэтому не удалён
 root@serg-1011PX:/home/serg#
+Диаграмма  
++---------------------+
+|    Животные         |  (родительский класс)
++---------------------+
+| - имя: String       |
+| - возраст: int      |
++---------------------+
+| + издатьЗвук(): void|
++---------------------+
+          |
+          |----------------------+
+          |                      |
++---------------------+  +---------------------+
+|  Домашние животные  |  |  Вьючные животные   |
++---------------------+  +---------------------+
+|                     |  |                     |
++---------------------+  +---------------------+
+| + ухаживать(): void  |  | + грузить(): void   |
++---------------------+  +---------------------+
+          |                      |
+          |                      |
+  +-------+-------+      +-----+-----+
+  |       |       |      |     |     |
++-----+ +-----+ +-----+ +-----+ +-----+
+|Собаки| |Кошки| |Хомяки| |Лошади| |Верблюды| |Ослы|
++-----+ +-----+ +-----+ +-----+ +-----+ +-----+
+
+
+
+
+
+
+serg@serg-1011PX:/var/log/samba$ sudo systemctl status mysql
+[sudo] пароль для serg:
+● mysql.service - MySQL Community Server
+     Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sun 2024-10-27 17:50:25 EET; 1 day 1h ago
+   Main PID: 25780 (mysqld)
+     Status: "Server is operational"
+      Tasks: 39 (limit: 1026)
+     Memory: 25.5M
+     CGroup: /system.slice/mysql.service
+             └─25780 /usr/sbin/mysqld
+
+окт 27 17:50:17 serg-1011PX systemd[1]: Starting MySQL Community Server...
+окт 27 17:50:25 serg-1011PX systemd[1]: Started MySQL Community Server.
+serg@serg-1011PX:/var/log/samba$ mysql -u root -p
+Enter password:
+ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+serg@serg-1011PX:/var/log/samba$ sudo su
+[sudo] пароль для serg:
+Попробуйте ещё раз.
+[sudo] пароль для serg:
+root@serg-1011PX:/var/log/samba# mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 8.0.39-0ubuntu0.20.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE DATABASE human_friends;
+Query OK, 1 row affected (1,50 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| human_friends      |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (2,72 sec)
+
+mysql>
+mysql> CREATE TABLE Animals (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     name VARCHAR(50) NOT NULL,
+    ->     birth_date DATE NOT NULL
+    -> );
+mals (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    animal_id INT,
+    command VARCHAR(100),
+    FOREIGN KEY (animal_id) REFERENCES Animals(id)
+);
+
+CREATE TABLE PackAnimals (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    animal_id INT,
+    command VARCHAR(100),
+    FOREIGN KEY (animal_id) REFERENCES Animals(id)
+);
+
+Query OK, 0 rows affected (4,70 sec)
+
+mysql>
+mysql> CREATE TABLE DomesticAnimals (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     animal_id INT,
+    ->     command VARCHAR(100),
+    ->     FOREIGN KEY (animal_id) REFERENCES Animals(id)
+    -> );
+Query OK, 0 rows affected (2,37 sec)
+
+mysql>
+mysql> CREATE TABLE PackAnimals (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     animal_id INT,
+    ->     command VARCHAR(100),
+    ->     FOREIGN KEY (animal_id) REFERENCES Animals(id)
+    -> );
+Query OK, 0 rows affected (2,27 sec)
+
+mysql>
+mysql> SHOW TABLES;
++-------------------------+
+| Tables_in_human_friends |
++-------------------------+
+| Animals                 |
+| DomesticAnimals         |
+| PackAnimals             |
++-------------------------+
+3 rows in set (0,04 sec)
+
+mysql> DELETE FROM Animals WHERE name = 'Камелия';
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`human_friends`.`PackAnimals`, CONSTRAINT `PackAnimals_ibfk_1` FOREIGN KEY (`animal_id`) REFERENCES `Animals` (`id`))
+mysql> SELECT * FROM Animals;
++----+----------------+------------+
+| id | name           | birth_date |
++----+----------------+------------+
+|  1 | Бобик          | 2019-05-01 |
+|  2 | Мурка          | 2020-03-15 |
+|  3 | Хомка          | 2021-07-20 |
+|  4 | Бурёнка        | 2018-06-10 |
+|  5 | Камелия        | 2017-04-25 |
+|  6 | Осел           | 2016-08-30 |
++----+----------------+------------+
+6 rows in set (0,00 sec)
+
+mysql> DELETE FROM Animals WHERE name = 'Камелия';
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`human_friends`.`PackAnimals`, CONSTRAINT `PackAnimals_ibfk_1` FOREIGN KEY (`animal_id`) REFERENCES `Animals` (`id`))
+mysql> DELETE FROM PackAnimals WHERE animal_id = (SELECT id FROM Animals WHERE name = 'Камелия');
+Query OK, 1 row affected (0,24 sec)
+
+mysql> SELECT * FROM Animals;
++----+----------------+------------+
+| id | name           | birth_date |
++----+----------------+------------+
+|  1 | Бобик          | 2019-05-01 |
+|  2 | Мурка          | 2020-03-15 |
+|  3 | Хомка          | 2021-07-20 |
+|  4 | Бурёнка        | 2018-06-10 |
+|  5 | Камелия        | 2017-04-25 |
+|  6 | Осел           | 2016-08-30 |
++----+----------------+------------+
+6 rows in set (0,00 sec)
+
+mysql> SELECT * FROM PackAnimals;
++----+-----------+---------------------------------+
+| id | animal_id | command                         |
++----+-----------+---------------------------------+
+|  1 |         4 | Нести груз                      |
+|  3 |         6 | Перевозить грузы                |
++----+-----------+---------------------------------+
+2 rows in set (0,00 sec)
+
+mysql> DELETE FROM Animals WHERE name = 'Камелия';
+Query OK, 1 row affected (0,19 sec)
+
+mysql> SELECT * FROM Animals;
++----+----------------+------------+
+| id | name           | birth_date |
++----+----------------+------------+
+|  1 | Бобик          | 2019-05-01 |
+|  2 | Мурка          | 2020-03-15 |
+|  3 | Хомка          | 2021-07-20 |
+|  4 | Бурёнка        | 2018-06-10 |
+|  6 | Осел           | 2016-08-30 |
++----+----------------+------------+
+5 rows in set (0,00 sec)
+
+mysql> CREATE TABLE CombinedAnimals (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     animal_id INT,
+    ->     command VARCHAR(100),
+    ->     animal_type ENUM('Domestic', 'Pack'),
+    ->     FOREIGN KEY (animal_id) REFERENCES Animals(id)
+    -> );
+Query OK, 0 rows affected (1,97 sec)
+
+
+-- Переносим данные из DomesticAnimals
+mysql> INSERT INTO CombinedAnimals (animal_id, command, animal_type)
+    -> SELECT animal_id, command, 'Domestic' AS animal_type FROM DomesticAnimals;
+--Переносим данные из PackAnimals
+INSERT INTO CombinedAnimals (animal_id, command, animal_type)
+SELECT animal_id, command, 'Pack' AS animal_type FROM PackAnimals;Query OK, 3 rows affected (0,23 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+ -- Переносим данные из PackAnimals
+mysql> INSERT INTO CombinedAnimals (animal_id, command, animal_type)
+    -> SELECT animal_id, command, 'Pack' AS animal_type FROM PackAnimals;
+Query OK, 2 rows affected (0,19 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM CombinedAnimals;
++----+-----------+---------------------------------+-------------+
+| id | animal_id | command                         | animal_type |
++----+-----------+---------------------------------+-------------+
+|  1 |         1 | Сидеть                          | Domestic    |
+|  2 |         2 | Лежать                          | Domestic    |
+|  3 |         3 | Бегать                          | Domestic    |
+|  4 |         4 | Нести груз                      | Pack        |
+|  5 |         6 | Перевозить грузы                | Pack        |
++----+-----------+---------------------------------+-------------+
+5 rows in set (0,00 sec)
+
+Anima    -> SELECT a.name, a.birth_date, 'Domestic' AS type, 'DomesticAnimals' AS source_table
+    -> FROM Animals a
+    -> JOIN DomesticAnimals d ON a.id = d.animal_id;
+NTO AllAnimals (name, birth_date, type, source_table)
+SELECT a.name, a.birth_date, 'Pack' AS type, 'PackAnimals' AS source_table
+FROM Animals a
+JOIN PackAnimals p ON a.id = p.animal_id;
+
+-- Переносим данные из YoungAnimals
+INSERT INTO AllAnimals (name, birth_date, type, source_table)
+SELECT name, birth_date, NULL AS type, 'YoungAnimals' AS source_table
+FROM YoungAnimals;
+Query OK, 3 rows affected (0,18 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> -- Переносим данные из PackAnimals
+mysql> INSERT INTO AllAnimals (name, birth_date, type, source_table)
+    -> SELECT a.name, a.birth_date, 'Pack' AS type, 'PackAnimals' AS source_table
+    -> FROM Animals a
+    -> JOIN PackAnimals p ON a.id = p.animal_id;
+Query OK, 2 rows affected (0,17 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> -- Переносим данные из YoungAnimals
+mysql> INSERT INTO AllAnimals (name, birth_date, type, source_table)
+    -> SELECT name, birth_date, NULL AS type, 'YoungAnimals' AS source_table
+    -> FROM YoungAnimals;
+Query OK, 0 rows affected (0,01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM YoungAnimals;
+Empty set (0,00 sec)
+
+mysql> SELECT * FROM Animals;
++----+----------------+------------+
+| id | name           | birth_date |
++----+----------------+------------+
+|  1 | Бобик          | 2019-05-01 |
+|  2 | Мурка          | 2020-03-15 |
+|  3 | Хомка          | 2021-07-20 |
+|  4 | Бурёнка        | 2018-06-10 |
+|  6 | Осел           | 2016-08-30 |
++----+----------------+------------+
+5 rows in set (0,00 sec)
+
+mysql> SELECT * FROM DomesticAnimals;
++----+-----------+--------------+
+| id | animal_id | command      |
++----+-----------+--------------+
+|  1 |         1 | Сидеть       |
+|  2 |         2 | Лежать       |
+|  3 |         3 | Бегать       |
++----+-----------+--------------+
+3 rows in set (0,00 sec)
+
+mysql> SELECT * FROM PackAnimals;
++----+-----------+---------------------------------+
+| id | animal_id | command                         |
++----+-----------+---------------------------------+
+|  1 |         4 | Нести груз                      |
+|  3 |         6 | Перевозить грузы                |
++----+-----------+---------------------------------+
+2 rows in set (0,00 sec)
+
+mysql> SELECT * FROM CombinedAnimals;
+ECT * FROM YoungAnimals;
+SELECT+----+-----------+---------------------------------+-------------+
+| id | animal_id | command                         | animal_type |
++----+-----------+---------------------------------+-------------+
+ * FR|  1 |    1 | Сидеть                          | Domestic    |
+|  2 |         2 | Лежать                          | Domestic    |
+|  3 |         3 | Бегать                          | Domestic    |
+|  4 |         4 | Нести груз                      | Pack        |
+|  5 |         6 | Перевозить грузы                | Pack        |
++----+-----------+---------------------------------+-------------+
+5 rows in set (0,01 sec)
+
+mysql> SELECT * FROM YoungAnimals;
+Empty set (0,00 sec)
+
+mysql> SELECT * FROM AllAnimals;
++----+----------------+------------+----------+-----------------+
+| id | name           | birth_date | type     | source_table    |
++----+----------------+------------+----------+-----------------+
+|  1 | Бобик          | 2019-05-01 | Domestic | DomesticAnimals |
+|  2 | Мурка          | 2020-03-15 | Domestic | DomesticAnimals |
+|  3 | Хомка          | 2021-07-20 | Domestic | DomesticAnimals |
+|  4 | Бурёнка        | 2018-06-10 | Pack     | PackAnimals     |
+|  5 | Осел           | 2016-08-30 | Pack     | PackAnimals     |
++----+----------------+------------+----------+-----------------+
+5 rows in set (0,00 sec)
